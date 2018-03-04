@@ -45,34 +45,37 @@ def go_to_bonus(bonuses, me, m):
         if temp < min_distance:
             min_distance = temp
             index = i
-    if index != -1:
-        m.dir(bonuses[index]['pos'][0], bonuses[index]['pos'][1])
+    if index != -1 and min_distance < 300:
+        m.dir(bonuses[index]['pos'][0] - me['pos'][0], bonuses[index]['pos'][1] - me['pos'][1])
 
 
 prev_action = ''
-
+magic_counter = 0
 
 def move(me, enemies, bullets, bonuses, m):
     global prev_action
+    global magic_counter
 
     if prev_action == 'def' or prev_action == '':
         go_to_bonus(bonuses, me, m)
         prev_action = 'bonus'
-    # индекс ближайшей пули
-    inb = check_bullet(bullets, me)
+    else:
+        # индекс ближайшей пули
+        inb = check_bullet(bullets, me)
 
-    if inb != -1:
-        prev_action = 'def'
-        b_x = bullets[inb]['pos'][0]
-        b_y = bullets[inb]['pos'][1]
-        m_y = 0
-        m_x = 0
-        magic = choice([-1, 1])
-        if b_x != 0:
-            m_y = magic * 100
-            m_x = (-1 * b_y * m_y) // b_x * randint(1,5)
-        elif b_y != 0:
-            m_x = magic * 100
-            m_y = (-1 * b_x * m_x) // b_y * randint(1,5)
-        m.dir(m_x, m_y)
-    #m.shot(enemies[0]['pos'][0], enemies[0]['pos'][1])
+        if inb != -1:
+            prev_action = 'def'
+            b_x = bullets[inb]['pos'][0]
+            b_y = bullets[inb]['pos'][1]
+            m_y = 0
+            m_x = 0
+            magic = choice([-1, 1])
+            if b_x != 0:
+                m_y = magic * 100 * randint(1,5)
+                m_x = (-1 * b_y * m_y) // b_x * randint(1,5)
+            elif b_y != 0:
+                m_x = magic * 100 * randint(1,5)
+                m_y = (-1 * b_x * m_x) // b_y * randint(1,5)
+            m.dir(m_x, m_y)
+    m.dir(randint(-10,10), randint(-10,10))
+    m.shot(enemies[0]['pos'][0], enemies[0]['pos'][1])
