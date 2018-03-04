@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e96398ff-7cf6-4b6c-bc26-4d9e85472333" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot_v1.py" afterPath="$PROJECT_DIR$/bot_v1.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out.json" afterPath="$PROJECT_DIR$/out.json" />
     </list>
@@ -20,15 +18,15 @@
       <file leaf-file-name="bot_v1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_v1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="79" column="38" lean-forward="false" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
+            <state relative-caret-position="157">
+              <caret line="59" column="35" lean-forward="true" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="35" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#111#394#0" expanded="false" />
                 <element signature="e#431#641#0" expanded="false" />
                 <element signature="e#679#1005#0" expanded="false" />
                 <element signature="e#1045#1385#0" expanded="false" />
-                <element signature="e#1750#2227#0" expanded="false" />
+                <element signature="e#1773#2250#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -318,15 +316,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_v1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="79" column="38" lean-forward="false" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
+        <state relative-caret-position="157">
+          <caret line="59" column="35" lean-forward="true" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="35" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <element signature="e#111#394#0" expanded="false" />
             <element signature="e#431#641#0" expanded="false" />
             <element signature="e#679#1005#0" expanded="false" />
             <element signature="e#1045#1385#0" expanded="false" />
-            <element signature="e#1750#2227#0" expanded="false" />
+            <element signature="e#1773#2250#0" expanded="false" />
           </folding>
         </state>
       </provider>

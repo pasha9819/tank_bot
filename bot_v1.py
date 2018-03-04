@@ -59,7 +59,7 @@ def move(me, enemies, bullets, bonuses, m):
     if prev_action == 'def' or prev_action == '':
         go_to_bonus(bonuses, me, m)
         prev_action = 'bonus'
-    else:
+    elif prev_action == 'bonus':
         # индекс ближайшей пули
         inb = check_bullet(bullets, me)
 
@@ -77,5 +77,5 @@ def move(me, enemies, bullets, bonuses, m):
                 m_x = magic * 100 * randint(1,5)
                 m_y = (-1 * b_x * m_x) // b_y * randint(1,5)
             m.dir(m_x, m_y)
-    m.dir(randint(-10,10), randint(-10,10))
+    # m.dir(randint(-10,10), randint(-10,10))
     m.shot(enemies[0]['pos'][0], enemies[0]['pos'][1])
