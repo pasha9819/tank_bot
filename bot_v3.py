@@ -11,9 +11,13 @@ def is_bullet_can_kill_me(bullet, me):
     y_bullet = bullet['pos'][1]
     b_dir_x = bullet['dir'][0]
     b_dir_y = bullet['dir'][1]
-    if (x_bullet - x_me) * b_dir_x + (y_bullet - y_me) * b_dir_y < 0.8 * sqrt((x_bullet - x_me)):
-        return False
-    return True
+
+    temp = (x_bullet - x_me) * b_dir_x + (y_bullet - y_me) * b_dir_y
+
+    temp /= math.sqrt(pow(x_bullet - x_me, 2)+ pow(y_bullet - y_me, 2))
+    if  temp > 0.9:
+        return True
+    return False
 
 
 def distance_to_obj(obj, me):
@@ -69,7 +73,8 @@ def shot_to_advance(me, enemies, m):
 
     time = dist_to_enem / game.BULLET_SPEED
 
-    time /= 5
+    #time /= 10
+
     next_enem_x = x_en - en_dir_x * time
     next_enem_y = y_en - en_dir_y * time
 
@@ -87,10 +92,24 @@ def move(me, enemies, bullets, bonuses, m):
         global magic_counter
 
         shot_to_advance(me, enemies, m)
-        if magic_counter < 50:
-            m.dir(400,300)
+
+        x = me['pos'][0]
+        y = me['pos'][1]
+
+
+        if x < 50 and y < 50:
+            m.dir(1, 1)
+        elif x > 770 and y > 570:
+            m.dir(-1, -1)
+        elif magic_counter < 15:
+            if x > 600 and y > 500:
+                m.dir(-550, -100)
+            else:
+                m.dir(550, 110)
             magic_counter += 1
-        if prev_action == 'def' or prev_action == '':
+        elif distance_to_obj(enemies[0], me) < 200:
+            m.dir((me['pos'][0] - enemies[0]['pos'][0]) * randint(1,5), (me['pos'][1] - enemies[0]['pos'][1]) * randint(1,5))
+        elif prev_action == 'def' or prev_action == '':
             go_to_bonus(bonuses, me, m)
             prev_action = 'bonus'
         elif prev_action == 'bonus':
@@ -105,15 +124,14 @@ def move(me, enemies, bullets, bonuses, m):
                 m_x = 0
                 magic = choice([-1, 1])
                 if b_x != 0:
-                    m_y = magic * 100
-                    m_x = (-1 * b_y * m_y) // b_x
+                    m_y = magic * 100# * randint(1,5)
+                    m_x = (-1 * b_y * m_y) // b_x# * randint(1,5)
                 elif b_y != 0:
-                    m_x = magic * 100
-                    m_y = (-1 * b_x * m_x) // b_y
+                    m_x = magic * 100# * randint(1,5)
+                    m_y = (-1 * b_x * m_x) // b_y# * randint(1,5)
                 m.dir(m_x, m_y)
         # m.dir(randint(-10,10), randint(-10,10))
         # m.shot(enemies[0]['pos'][0]+30, enemies[0]['pos'][1])
 
     except:
         pass
-
