@@ -1,10 +1,17 @@
 import math
 import game
 from random import choice
-from random import randint
+
+
+prev_action = ''
+magic_counter = 0
+prev_enem_x = 0
+prev_enem_y = 0
+inb = -1
 
 
 def is_bullet_can_kill_me(bullet, me):
+
     x_me = me['pos'][0]
     x_bullet = bullet['pos'][0]
     y_me = me['pos'][1]
@@ -15,7 +22,9 @@ def is_bullet_can_kill_me(bullet, me):
     temp = (x_bullet - x_me) * b_dir_x + (y_bullet - y_me) * b_dir_y
 
     temp /= math.sqrt(pow(x_bullet - x_me, 2)+ pow(y_bullet - y_me, 2))
-    if  temp > 0.9:
+    if distance_to_obj(bullet, me) < 80 and temp > 0.7:
+        return True
+    if temp < 0.9:
         return True
     return False
 
@@ -31,7 +40,7 @@ def distance_to_obj(obj, me):
 
 def check_bullet(bullets, me):
     """функция возвращает индекс ближайшей пули летящей на нас"""
-    min_distance = 1000
+    min_distance = 80
     index = -1
     for i in range(len(bullets)):
         temp = distance_to_obj(bullets[i], me)
@@ -41,20 +50,15 @@ def check_bullet(bullets, me):
     return index
 
 
-def go_to_bonus(bonuses, me, m):
-    min_distance = 1000
+def index_of_nearest_bonus(bonuses, me):
+    min_distance = 700
     index = -1
     for i in range(len(bonuses)):
         temp = distance_to_obj(bonuses[i], me)
         if temp < min_distance:
             min_distance = temp
             index = i
-    if index != -1 and min_distance < 700:
-        m.dir(bonuses[index]['pos'][0] - me['pos'][0], bonuses[index]['pos'][1] - me['pos'][1])
-
-
-prev_enem_x = 0
-prev_enem_y = 0
+    return index
 
 
 def shot_to_advance(me, enemies, m):
@@ -82,56 +86,61 @@ def shot_to_advance(me, enemies, m):
     m.shot(next_enem_x, next_enem_y)
 
 
-prev_action = ''
-magic_counter = 0
+def need_to_survive(me, bullets):
+    global inb
+    inb = check_bullet(bullets, me)
+    if inb != -1:
+        return True
+    return False
+
+
+def get_perpendicular_line(dir_x, dir_y):
+    m_y = 0
+    m_x = 0
+    magic = choice([-1, 1])
+    magic = 1
+    if dir_x != 0:
+        m_y = magic * 100  # * randint(1,5)
+        m_x = (-1 * dir_y * m_y) / dir_x  # * randint(1,5)
+    elif dir_y != 0:
+        m_x = magic * 100  # * randint(1,5)
+        m_y = (-1 * dir_x * m_x) / dir_y  # * randint(1,5)
+    return m_x, m_y
+
+
+def player_in_corner(x, y):
+    return x < 50 and y < 50 or x > 750 and y > 550 or x < 50 and y > 550 or x > 750 and y < 50
+
+
+def player_near_the_border(x, y):
+    return x < 30 or y < 30 or x > 770 or y > 570
 
 
 def move(me, enemies, bullets, bonuses, m):
     try:
         global prev_action
         global magic_counter
+        global inb
 
         shot_to_advance(me, enemies, m)
 
         x = me['pos'][0]
         y = me['pos'][1]
 
-
-        if x < 50 and y < 50:
-            m.dir(1, 1)
-        elif x > 770 and y > 570:
-            m.dir(-1, -1)
-        elif magic_counter < 15:
-            if x > 600 and y > 500:
-                m.dir(-550, -100)
-            else:
-                m.dir(550, 110)
-            magic_counter += 1
+        if need_to_survive(me, bullets):
+            prev_action = 'def'
+            m_x, m_y = get_perpendicular_line(bullets[inb]['dir'][0], bullets[inb]['dir'][1])
+            m.dir(m_x, m_y)
         elif distance_to_obj(enemies[0], me) < 200:
-            m.dir((me['pos'][0] - enemies[0]['pos'][0]) * randint(1,5), (me['pos'][1] - enemies[0]['pos'][1]) * randint(1,5))
-        elif prev_action == 'def' or prev_action == '':
-            go_to_bonus(bonuses, me, m)
-            prev_action = 'bonus'
-        elif prev_action == 'bonus':
-            # индекс ближайшей пули
-            inb = check_bullet(bullets, me)
-
-            if inb != -1:
-                prev_action = 'def'
-                b_x = bullets[inb]['pos'][0]
-                b_y = bullets[inb]['pos'][1]
-                m_y = 0
-                m_x = 0
-                magic = choice([-1, 1])
-                if b_x != 0:
-                    m_y = magic * 100# * randint(1,5)
-                    m_x = (-1 * b_y * m_y) // b_x# * randint(1,5)
-                elif b_y != 0:
-                    m_x = magic * 100# * randint(1,5)
-                    m_y = (-1 * b_x * m_x) // b_y# * randint(1,5)
-                m.dir(m_x, m_y)
-        # m.dir(randint(-10,10), randint(-10,10))
-        # m.shot(enemies[0]['pos'][0]+30, enemies[0]['pos'][1])
-
+            if abs(400 - x) < 50 and abs(300 - y) < 50:
+                m.dir(x - 400, y - 300)
+            else:
+                m.dir(400 - x, 300 - y)
+        elif player_in_corner(x, y):
+            m.dir(400 - x, 300 - y)
+        else:
+            index = index_of_nearest_bonus(bonuses, me)
+            m.dir(bonuses[index]['pos'][0] - x, bonuses[index]['pos'][1] - y)
     except:
         pass
+

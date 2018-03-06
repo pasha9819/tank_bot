@@ -11,7 +11,7 @@ def is_bullet_can_kill_me(bullet, me):
     y_bullet = bullet['pos'][1]
     b_dir_x = bullet['dir'][0]
     b_dir_y = bullet['dir'][1]
-    if (x_bullet - x_me) * b_dir_x + (y_bullet - y_me) * b_dir_y < 0.8 * sqrt((x_bullet - x_me)):
+    if (x_bullet - x_me) * b_dir_x + (y_bullet - y_me) * b_dir_y < 0.8 * math.sqrt(x_bullet - x_me):
         return False
     return True
 

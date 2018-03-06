@@ -19,7 +19,7 @@ TANK_COLORS = [(50,150,0), (150,50,20)]
 font = pygame.font.SysFont("Arial", 20)
 
 def handle_events():
-    sleep(1 / 60.)
+    sleep(2 / 60.)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit(0)
