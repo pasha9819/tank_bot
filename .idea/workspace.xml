@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e96398ff-7cf6-4b6c-bc26-4d9e85472333" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot_v1.py" afterPath="$PROJECT_DIR$/bot_v1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot_v2.py" afterPath="$PROJECT_DIR$/bot_v2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot_v3.py" afterPath="$PROJECT_DIR$/bot_v3.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game.py" afterPath="$PROJECT_DIR$/game.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot_v4.py" afterPath="$PROJECT_DIR$/bot_v4.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out.json" afterPath="$PROJECT_DIR$/out.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vis.py" afterPath="$PROJECT_DIR$/vis.py" />
     </list>
@@ -51,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bot_v4.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bot_v4.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot_v4.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="144" column="34" lean-forward="false" selection-start-line="144" selection-start-column="34" selection-end-line="144" selection-end-column="34" />
+            <state relative-caret-position="242">
+              <caret line="172" column="38" lean-forward="false" selection-start-line="172" selection-start-column="38" selection-end-line="172" selection-end-column="38" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#184#630#0" expanded="false" />
@@ -66,9 +63,8 @@
                 <element signature="e#2093#2194#0" expanded="false" />
                 <element signature="e#2255#2728#0" expanded="false" />
                 <element signature="e#2763#2854#0" expanded="false" />
-                <element signature="e#2895#2940#0" expanded="false" />
-                <element signature="e#2984#3083#0" expanded="false" />
-                <element signature="e#3120#3169#0" expanded="false" />
+                <element signature="e#3021#3120#0" expanded="false" />
+                <element signature="e#3157#3206#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -96,10 +92,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vis.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="vis.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
+            <state relative-caret-position="38">
               <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
               <folding>
                 <element signature="e#19#29#0" expanded="true" />
@@ -112,7 +108,7 @@
         <entry file="file://$PROJECT_DIR$/game.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+              <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -144,9 +140,9 @@
         <option value="$PROJECT_DIR$/bot_v1.py" />
         <option value="$PROJECT_DIR$/bot_v2.py" />
         <option value="$PROJECT_DIR$/bot_v3.py" />
+        <option value="$PROJECT_DIR$/bot_v4.py" />
         <option value="$PROJECT_DIR$/game.py" />
         <option value="$PROJECT_DIR$/vis.py" />
-        <option value="$PROJECT_DIR$/bot_v4.py" />
       </list>
     </option>
   </component>
@@ -202,7 +198,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.battlelib">
+  <component name="RunManager" selected="Python.vis">
     <configuration default="false" name="vis" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -234,7 +230,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="tank_bot" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/battlelib.py" />
-      <option name="PARAMETERS" value="bot_v1.py bot_v4.py" />
+      <option name="PARAMETERS" value="bot_v4.py bot_v4.py" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
@@ -309,8 +305,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.battlelib" />
-        <item index="1" class="java.lang.String" itemvalue="Python.vis" />
+        <item index="0" class="java.lang.String" itemvalue="Python.vis" />
+        <item index="1" class="java.lang.String" itemvalue="Python.battlelib" />
       </list>
     </recent_temporary>
   </component>
@@ -337,8 +333,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -521,28 +518,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-          <folding>
-            <element signature="e#19#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot_v4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="144" column="34" lean-forward="false" selection-start-line="144" selection-start-column="34" selection-end-line="144" selection-end-column="34" />
+        <state relative-caret-position="242">
+          <caret line="172" column="38" lean-forward="false" selection-start-line="172" selection-start-column="38" selection-end-line="172" selection-end-column="38" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <element signature="e#184#630#0" expanded="false" />
@@ -553,9 +532,26 @@
             <element signature="e#2093#2194#0" expanded="false" />
             <element signature="e#2255#2728#0" expanded="false" />
             <element signature="e#2763#2854#0" expanded="false" />
-            <element signature="e#2895#2940#0" expanded="false" />
-            <element signature="e#2984#3083#0" expanded="false" />
-            <element signature="e#3120#3169#0" expanded="false" />
+            <element signature="e#3021#3120#0" expanded="false" />
+            <element signature="e#3157#3206#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+          <folding>
+            <element signature="e#19#29#0" expanded="true" />
           </folding>
         </state>
       </provider>

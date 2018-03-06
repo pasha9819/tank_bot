@@ -116,8 +116,8 @@ def player_in_corner(x, y):
     return x < 50 and y < 50 or x > 750 and y > 550 or x < 50 and y > 550 or x > 750 and y < 50
 
 
-def player_near_the_border(x, y):
-    return x < 30 or y < 30 or x > 770 or y > 570
+def player_near_the_border(x, y, border=30):
+    return x < border or y < border or x > 800 - border or y > 800 - border
 
 
 def normalized_vector(x, y, length):
@@ -142,7 +142,7 @@ def move(me, enemies, bullets, bonuses, m):
 
         dx = dy = 0
 
-        if player_near_the_border(x, y):
+        if player_near_the_border(x, y) and magic_counter % 5 == 0:
             m.dir(400 - x, 300 - y)
         elif need_to_survive(me, bullets):
             prev_action = 'def'
@@ -154,7 +154,9 @@ def move(me, enemies, bullets, bonuses, m):
                 dx *= -1
                 dy *= -1
             m.dir(dx, dy)
-        elif distance_to_obj(enemies[0], me) < 200:
+            if player_near_the_border(x, y, 50):
+                m.dir(400 - x, 300 - y)
+        elif distance_to_obj(enemies[0], me) < 150:
             """if abs(400 - x) < 50 and abs(300 - y) < 50:
                 m.dir(x - 400, y - 300)
             else:
@@ -167,6 +169,8 @@ def move(me, enemies, bullets, bonuses, m):
             index = index_of_nearest_bonus(bonuses, me)
             if index != -1:
                 m.dir(bonuses[index]['pos'][0] - x, bonuses[index]['pos'][1] - y)
+            else:
+                m.dir(400 - x, 300 - y)
     except:
         pass
 
